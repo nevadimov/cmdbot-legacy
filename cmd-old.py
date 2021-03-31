@@ -10,7 +10,7 @@ import requests
 import random
 from typing import Any, Text
 import vk_api
-from random import choice # второй раз импортнули, нахуя?
+from random import choice
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
 
 vk = vk_api.VkApi(token="youtokenhere")  # Токен твоего бота
@@ -40,7 +40,7 @@ while True: # Чтоб бот не падал при пропадании тыр
                             oppenedfile=file.read()
                             send_msg(event.message.peer_id, message=(f"{oppenedfile}"))
                             file.close()
-                            os.system("rd tmp.txt")
+                            os.system("rm tmp.txt")
                         else:
                             send_msg(event.message.peer_id, message=(f"Вас нет в админ-листе бота.")) # Сообщение если не нашло в списке админов
            
